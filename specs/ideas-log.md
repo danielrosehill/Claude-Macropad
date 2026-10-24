@@ -22,6 +22,7 @@ Complete catalogue of brainstormed features with authorship. Not all are in a sp
 | `/compact` + Return (promoted) | Daniel |
 | `/model` + Return | Daniel |
 | Rewind (`Esc` `Esc`) | Daniel |
+| `/usage` + Return | Daniel |
 | `cd ~/repos` + Return, path set in a config file | Daniel |
 
 ## Additional shortcuts (Claude-suggested)

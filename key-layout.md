@@ -20,7 +20,7 @@ Exceptions are called out per key (the mic key sends a key, not text; the
 "Approved" / "Stop!" replies are still an open question, see
 `ideated-shortcuts.md`).
 
-## Current count: 17 committed keys
+## Current count: 18 committed keys
 
 | # | Key | Legend / icon | Sends | Submit? | Source |
 |---|-----|---------------|-------|---------|--------|
@@ -61,16 +61,16 @@ keycode (e.g. `F14`), a host-side shortcut catches it, and the helper reads
 works this way (`type` action in `~/.config/virtual-macropad/config.yaml`). The
 config file name and the `F14` routing are proposals, not built yet.
 
-### What 17 means for hardware
+### What 18 means for hardware
 
 - The specs (`specs/esp32-standard.md`, `specs/bom.md`) assumed **10–12 keys**
-  (3×3 / 3×4). 17 is one more than a 4×4.
+  (3×3 / 3×4). 18 is two more than a 4×4.
 - With the two strongest candidates below (`Esc`, `Shift+Tab`) the wish list is
-  **19**. Options:
-  - **4×5 (20 keys)**: everything fits, one spare. Recommended for the custom
+  **20**. Options:
+  - **4×5 (20 keys)**: everything fits exactly. Recommended for the custom
     PCB (Tier 3).
   - **4×4 + rotary encoder push**: put Rewind on the encoder button and drop
-    one candidate.
+    the two candidates.
   - **4×4 + layer**: keep the 16 most-used on layer 1.
 - Adafruit MacroPad RP2040 (3×4 + encoder) would need two layers.
 - For comparison, OpenAI's Codex Micro (see [`prior-art.md`](prior-art.md)) is
@@ -105,7 +105,7 @@ mode. (Whether `F13`–`F24` reach Claude Code through Konsole is not yet tested
 
 ## Candidate keys (not yet committed)
 
-Ranked. Model and Rewind were promoted to keys 15–16 on 2026-10-24.
+Ranked. Model, Rewind and Usage were promoted to keys 15, 16 and 18 on 2026-10-24.
 
 | Rank | Key | Sends | Why |
 |------|-----|-------|-----|
@@ -113,9 +113,8 @@ Ranked. Model and Rewind were promoted to keys 15–16 on 2026-10-24.
 | 2 | Mode cycle | `Shift+Tab` | Plan / auto-accept / normal. Awkward on a laptop. |
 | 3 | Clear | `/clear` + Return | Fresh context without restarting. |
 | 4 | Resume | `/resume` + Return | Session picker. |
-| 6 | Context | `/context` + Return | See how full the window is before deciding to `/compact`. |
-| 8 | Usage | `/usage` + Return | Plan limits. |
-| 9 | Voice toggle | `/voice` + Return | Pairs with key 2; turns dictation on or off. |
-| 10 | Accept / deny prompt | `1` / `Esc` (or `Enter`) | Permission dialogs. Overlaps with "Approved". |
+| 5 | Context | `/context` + Return | See how full the window is before deciding to `/compact`. |
+| 6 | Voice toggle | `/voice` + Return | Pairs with key 2; turns dictation on or off. |
+| 7 | Accept / deny prompt | `1` / `Esc` (or `Enter`) | Permission dialogs. Overlaps with "Approved". |
 
-A layer key (hold for layer 2) would carry 3–10 without growing the pad.
+A layer key (hold for layer 2) would carry 3 onwards without growing the pad.
