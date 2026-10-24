@@ -11,5 +11,5 @@ A dedicated macropad for driving Claude Code — approve, stop, new session, nav
 - [`ideated-shortcuts.md`](ideated-shortcuts.md) — candidate key assignments.
 - [`TODO.md`](TODO.md) — planned configuration and management tool.
 - [`prior-art.md`](prior-art.md) — existing agent macropads (Codex Micro, Stream Deck plugins).
-- [`specs/`](specs/) — ESP32 / RP2040 build specs, ideas log, [keycap printing](specs/keycap-printing.md), [Linux-compatible pads](specs/linux-macropads.md), and the [BOM](specs/bom.md).
+- [`specs/`](specs/) — ESP32 / RP2040 build specs, ideas log, [keycap printing](specs/keycap-printing.md), [Linux-compatible pads](specs/linux-macropads.md), [shopping spec](specs/shopping-spec.md), and the [BOM](specs/bom.md).
 - [`assets/prototypes/`](assets/prototypes/) — visual prototypes.

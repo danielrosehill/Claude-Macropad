@@ -20,6 +20,8 @@ the 17% Israeli VAT above ~$75 (see `bom.md`).
 4. **Text macros with Return** (`/compact` ⏎). VIA has a macro editor; QMK
    does it in the keymap; Stream Deck software does it natively.
 
+Buying checklist and an AliExpress scan: [`shopping-spec.md`](shopping-spec.md).
+
 ## Candidates
 
 | Pad | Keys | Programming on Linux | Approx. price | Fit |
