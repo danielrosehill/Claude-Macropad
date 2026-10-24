@@ -6,7 +6,7 @@ brainstorm; this file is the shortlist. Last updated 2026-10-24.
 
 ![3x4 concept render](assets/prototypes/layout-3x4-render.png)
 
-*Concept render (Gemini / Nano Banana 2, 2026-10-24) of the 10-key draft on a 3×4 pad. Key positions in the image are approximate; the table below is authoritative.*
+*Concept render (Gemini / Nano Banana 2, 2026-10-24) of the 11-key draft on a 3×4 pad (one blank spare). Key positions in the image are approximate; the table below is authoritative.*
 
 ## Submit-style injectors
 
@@ -60,7 +60,7 @@ config file name and the `F14` routing are proposals, not built yet.
 
 - Fits a **3×4 (12 keys)** with 1 spare, which matches the original specs
   (`specs/esp32-standard.md`, `specs/bom.md`: 10–12 keys).
-- Adafruit MacroPad RP2040 (3×4 + encoder) fits with no layers; the encoder push
+- Adafruit MacroPad RP2040 (3×4 + encoder) fits with no layers (pad options and prices: [`specs/linux-macropads.md`](specs/linux-macropads.md)); the encoder push
   could take Rewind and free a second slot.
 - For comparison, OpenAI's Codex Micro (see [`prior-art.md`](prior-art.md)) is
   13 keys plus an encoder.
