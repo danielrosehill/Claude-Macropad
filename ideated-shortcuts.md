@@ -17,6 +17,19 @@ Brainstormed macropad commands for Claude Code workflow on Ubuntu/KDE.
 | 9 | Spawn Konsole here | Text injection | Types command to open a new Konsole window at the current working directory |
 | 10 | Open a repo in Claude | Runner / picker | Launches a fuzzy-finder rooted at `~/repos/github`; arrow keys navigate matches, Enter opens the chosen repo in Claude inside a new Konsole window |
 
+## Added 2026-10-24
+
+Submit-style keys: the macro types the text **and** presses Return, so the
+command actually runs. Consolidated with the list above in
+[`key-layout.md`](key-layout.md) (14 committed keys).
+
+| # | Shortcut | Type | Action |
+|---|----------|------|--------|
+| 11 | Enter Claude Code | Text injection + Return | Types `claude` then Return in the focused terminal |
+| 12 | Push-to-talk (mic icon) | Keystroke (held) | Sends `Space`, Claude Code's default `voice:pushToTalk` key. Hold mode needs a real held key; see `key-layout.md` |
+| 13 | Config | Text injection + Return | `/config` then Return |
+| 14 | Compact | Text injection + Return | `/compact` then Return (promoted from the suggestions below) |
+
 ## Shortcut #10 — Open-Repo Runner (detail)
 
 **Flow:**
@@ -51,7 +64,6 @@ Alternative: a `rofi -dmenu` frontend for a nicer floating popup without needing
 | Escape / Cancel | Keystroke | Sends `Esc` to interrupt Claude mid-generation (distinct from "Stop!" text injection) |
 | Toggle plan / auto-accept mode | Keystroke | Sends `Shift+Tab` |
 | Clear context | Text injection | Types `/clear` |
-| Compact context | Text injection | Types `/compact` |
 | Resume last session | Konsole command | `konsole -e bash -c "claude --resume"` |
 | Yes / accept prompt | Keystroke | Sends Enter (or arrow + Enter) to confirm permission dialogs |
 | No / deny prompt | Keystroke | Sends the deny sequence on permission dialogs |

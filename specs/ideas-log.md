@@ -16,6 +16,10 @@ Complete catalogue of brainstormed features with authorship. Not all are in a sp
 | Commit and push all changes | Daniel |
 | Spawn Konsole here | Daniel |
 | Open a repo in Claude (fuzzy picker) | Daniel |
+| Enter Claude Code (`claude` + Return) | Daniel |
+| Push-to-talk key with mic icon (`Space`) | Daniel |
+| `/config` + Return | Daniel |
+| `/compact` + Return (promoted) | Daniel |
 
 ## Additional shortcuts (Claude-suggested)
 
@@ -24,7 +28,9 @@ Complete catalogue of brainstormed features with authorship. Not all are in a sp
 | Escape / Cancel keystroke | Claude |
 | Shift+Tab (plan / auto-accept toggle) | Claude |
 | `/clear` injection | Claude |
-| `/compact` injection | Claude |
+| `/resume`, `/context`, `/model`, `/usage`, `/voice` + Return | Claude |
+| Esc-Esc rewind | Claude |
+| Rebind `voice:pushToTalk` to a modifier combo for no warmup | Claude |
 | `claude --resume` launcher | Claude |
 | Yes / accept prompt | Claude |
 | No / deny prompt | Claude |
