@@ -1,4 +1,4 @@
-# Claude-Macropad-V2
+# Claude-Macropad
 
 ![Claude Macropad banner](assets/banner.png)
 
