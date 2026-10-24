@@ -4,9 +4,9 @@ The consolidated list of keys the pad is currently meant to carry, and how many
 that adds up to. [`ideated-shortcuts.md`](ideated-shortcuts.md) is the
 brainstorm; this file is the shortlist. Last updated 2026-10-24.
 
-![4x4 concept render](assets/prototypes/layout-4x4-render.png)
+![3x4 concept render](assets/prototypes/layout-3x4-render.png)
 
-*Concept render (Gemini / Nano Banana 2, 2026-10-24) of the 14 keys plus `Esc` and `Shift+Tab`. Key positions in the image are approximate; the table below is authoritative.*
+*Concept render (Gemini / Nano Banana 2, 2026-10-24) of the 10-key draft on a 3×4 pad. Key positions in the image are approximate; the table below is authoritative.*
 
 ## Submit-style injectors
 
@@ -14,44 +14,36 @@ Most Claude Code keys are **text injection followed by Return**. Typing `/compac
 without pressing Enter does nothing useful, so these keys send the text and then
 the Return keystroke as one macro. On Linux the host-side equivalent is
 `ydotool type '<text>'` then `ydotool key 28:1 28:0` (Enter), or `wtype '<text>' -k Return`
-where the compositor supports it.
+where the compositor supports it. Keys that send a keystroke instead are marked n/a.
 
-Exceptions are called out per key (the mic key sends a key, not text; the
-"Approved" / "Stop!" replies are still an open question, see
-`ideated-shortcuts.md`).
+## Current draft: 10 keys
 
-## Current count: 18 committed keys
+Daniel's keys (2026-10-24) plus the two Claude suggested to fill the grid.
 
 | # | Key | Legend / icon | Sends | Submit? | Source |
 |---|-----|---------------|-------|---------|--------|
-| 1 | **Enter Claude Code** | Claude logo | `claude` + Return (into the focused terminal) | yes | Daniel, 2026-10-24 |
-| 2 | **Push-to-talk** | 🎤 microphone | `Space` held (see below) | n/a | Daniel, 2026-10-24 |
-| 3 | **Config** | `/config` or ⚙ | `/config` + Return | yes | Daniel, 2026-10-24 |
-| 4 | **Compact** | `/compact` | `/compact` + Return | yes | Daniel, 2026-10-24 (promoted from suggestions) |
-| 5 | Launch Claude at home level | 🏠 | `konsole -e bash -c "cd ~ && claude"` | — | core #1 |
-| 6 | Open this folder in Claude | 📁→Claude | Konsole + `claude` at the focused Dolphin path | — | core #2 |
-| 7 | New Claude instance here | ＋ | spawn a new session at cwd | — | core #3 |
-| 8 | Approved | ✓ | `approved` (+ Return?) | open | core #4 |
-| 9 | Stop! | ✋ | `stop!` (+ Return?) | open | core #5 |
-| 10 | Copy Claude (split) | ⧉ | Konsole split, same cwd, `claude` | — | core #6 |
-| 11 | Open in file manager | 📂 | `dolphin .` at cwd | — | core #7 |
-| 12 | Commit and push | ⬆ | `/commit-and-push` + Return | yes | core #8 |
-| 13 | Spawn Konsole here | `>_` | new Konsole at cwd | — | core #9 |
-| 14 | Open a repo in Claude | 🔍 | fuzzy repo picker → Konsole + `claude` | — | core #10 |
-| 15 | **Model** | `/model` | `/model` + Return | yes | Daniel, 2026-10-24 |
-| 16 | **Rewind** | ↶ | `Esc` `Esc` (undo the last turn) | n/a | Daniel, 2026-10-24 |
-| 17 | **Go to repos** | 🗂 `~/repos` | `cd <repos_dir>` + Return; path from config (below) | yes | Daniel, 2026-10-24 |
+| 1 | **Enter Claude Code** | Claude logo | `claude` + Return (into the focused terminal) | yes | Daniel |
+| 2 | **Push-to-talk** | 🎤 microphone | `Space` held (see below) | n/a | Daniel |
+| 3 | **Config** | ⚙ `/config` | `/config` + Return | yes | Daniel |
+| 4 | **Compact** | `/compact` | `/compact` + Return | yes | Daniel |
+| 5 | **Model** | `/model` | `/model` + Return | yes | Daniel |
+| 6 | **Usage** | `/usage` | `/usage` + Return (plan limits) | yes | Daniel |
+| 7 | **Rewind** | ↶ | `Esc` `Esc` (undo the last turn) | n/a | Daniel |
+| 8 | **Go to repos** | 🗂 `~/repos` | `cd <repos_dir>` + Return; path from config (below) | yes | Daniel |
+| 9 | Esc / interrupt | `Esc` | `Esc` (stops Claude mid-turn, cancels a dictation) | n/a | Claude |
+| 10 | Mode cycle | `⇧Tab` | `Shift+Tab` (plan / auto-accept / normal) | n/a | Claude |
 
-Keys 1 and 5 are deliberately different: key 1 types `claude` into the terminal
-you are already in; key 5 opens a new window at `~`.
+The original ten shortcuts in [`ideated-shortcuts.md`](ideated-shortcuts.md)
+(launch at home, Dolphin integration, Approved, Stop!, split, commit and push,
+repo picker, etc.) are **not** in this draft; they stay in the brainstorm.
 
-### The "Go to repos" key (key 17)
+### The "Go to repos" key (key 8)
 
 The target directory is user-configurable rather than hard-coded:
 
 ```yaml
 # ~/.config/claude-macropad/config.yaml
-repos_dir: ~/repos        # key 17 types: cd ~/repos ⏎
+repos_dir: ~/repos        # key 8 types: cd ~/repos ⏎
 ```
 
 The path has to live on the host, not in the pad: QMK/VIA string macros are
@@ -61,18 +53,12 @@ keycode (e.g. `F14`), a host-side shortcut catches it, and the helper reads
 works this way (`type` action in `~/.config/virtual-macropad/config.yaml`). The
 config file name and the `F14` routing are proposals, not built yet.
 
-### What 18 means for hardware
+### What 10 means for hardware
 
-- The specs (`specs/esp32-standard.md`, `specs/bom.md`) assumed **10–12 keys**
-  (3×3 / 3×4). 18 is two more than a 4×4.
-- With the two strongest candidates below (`Esc`, `Shift+Tab`) the wish list is
-  **20**. Options:
-  - **4×5 (20 keys)**: everything fits exactly. Recommended for the custom
-    PCB (Tier 3).
-  - **4×4 + rotary encoder push**: put Rewind on the encoder button and drop
-    the two candidates.
-  - **4×4 + layer**: keep the 16 most-used on layer 1.
-- Adafruit MacroPad RP2040 (3×4 + encoder) would need two layers.
+- Fits a **3×4 (12 keys)** with 2 spare, which matches the original specs
+  (`specs/esp32-standard.md`, `specs/bom.md`: 10–12 keys).
+- Adafruit MacroPad RP2040 (3×4 + encoder) fits with no layers; the encoder push
+  could take Rewind and free a third slot.
 - For comparison, OpenAI's Codex Micro (see [`prior-art.md`](prior-art.md)) is
   13 keys plus an encoder.
 
@@ -103,18 +89,15 @@ the first press with no warmup and work outside the prompt (transcript viewer,
 vim normal mode), where `Space` does not. Bare letters are a bad idea in hold
 mode. (Whether `F13`–`F24` reach Claude Code through Konsole is not yet tested.)
 
-## Candidate keys (not yet committed)
+## Candidates for the 2 spare slots
 
-Ranked. Model, Rewind and Usage were promoted to keys 15, 16 and 18 on 2026-10-24.
+Ranked.
 
 | Rank | Key | Sends | Why |
 |------|-----|-------|-----|
-| 1 | Esc / interrupt | `Esc` | Stops Claude mid-turn; also cancels a dictation. Distinct from the "Stop!" text. |
-| 2 | Mode cycle | `Shift+Tab` | Plan / auto-accept / normal. Awkward on a laptop. |
-| 3 | Clear | `/clear` + Return | Fresh context without restarting. |
-| 4 | Resume | `/resume` + Return | Session picker. |
-| 5 | Context | `/context` + Return | See how full the window is before deciding to `/compact`. |
-| 6 | Voice toggle | `/voice` + Return | Pairs with key 2; turns dictation on or off. |
-| 7 | Accept / deny prompt | `1` / `Esc` (or `Enter`) | Permission dialogs. Overlaps with "Approved". |
-
-A layer key (hold for layer 2) would carry 3 onwards without growing the pad.
+| 1 | Clear | `/clear` + Return | Fresh context without restarting. |
+| 2 | Resume | `/resume` + Return | Session picker. |
+| 3 | Context | `/context` + Return | See how full the window is before deciding to `/compact`. |
+| 4 | Paste image | `Ctrl+V` | Screenshot from the clipboard into the prompt. |
+| 5 | Voice toggle | `/voice` + Return | Pairs with key 2; turns dictation on or off. |
+| 6 | Accept / deny prompt | `1` / `Esc` (or `Enter`) | Permission dialogs. |

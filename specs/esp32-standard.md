@@ -4,7 +4,7 @@ The baseline DIY build. A competent Claude companion macropad with keys, RGB, an
 
 ## Goals
 
-- 18–20 programmable keys (4×5 recommended; was 10–12 before the 2026-10-24 additions, see [`../key-layout.md`](../key-layout.md)) for the shortcuts defined in [`../ideated-shortcuts.md`](../ideated-shortcuts.md).
+- 10–12 programmable keys (3×4; current 10-key draft in [`../key-layout.md`](../key-layout.md)) for the shortcuts defined in [`../ideated-shortcuts.md`](../ideated-shortcuts.md).
 - Bidirectional USB HID so the host can push Claude-state updates to onboard LEDs.
 - Buildable in a weekend. Off-the-shelf parts only.
 
