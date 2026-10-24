@@ -24,10 +24,11 @@ re-flashing or hand-editing firmware keymaps. Added 2026-10-24.
    - Generic CH57x pads: generate a `ch57x-keyboard-tool` YAML and upload it.
    - Stream Deck: write a StreamController page.
    - Virtual Macropad: write `~/.config/virtual-macropad/config.yaml`.
-4. **Injection.** Reuse the backend logic from
+4. **Injection.** Port the backend logic into this repo from
    `linux-desktop/Virtual-Macropad` (`virtual_macropad/inject.py`: wtype /
    ydotool / xdotool, plus `layout_pin` for the Hebrew-layout problem) rather
    than rewriting it.
 
-Open: whether this lives in this repo or in Virtual-Macropad, which already has
-a config file, injection backends and a macro format.
+Decided 2026-10-24: the tool lives in **this repo** (Claude-Macropad).
+Virtual-Macropad is only an optional output target (step 3) and a source of
+injection code to copy or vendor (step 4).
