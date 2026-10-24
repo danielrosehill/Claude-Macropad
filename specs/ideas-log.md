@@ -20,6 +20,9 @@ Complete catalogue of brainstormed features with authorship. Not all are in a sp
 | Push-to-talk key with mic icon (`Space`) | Daniel |
 | `/config` + Return | Daniel |
 | `/compact` + Return (promoted) | Daniel |
+| `/model` + Return | Daniel |
+| Rewind (`Esc` `Esc`) | Daniel |
+| `cd ~/repos` + Return, path set in a config file | Daniel |
 
 ## Additional shortcuts (Claude-suggested)
 

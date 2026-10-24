@@ -7,7 +7,7 @@ A dedicated macropad for driving Claude Code — approve, stop, new session, nav
 ## Contents
 
 - [`hardware-directions.md`](hardware-directions.md) — off-the-shelf vs. custom-build paths, and how to wire the status LED to Claude Code hooks.
-- [`key-layout.md`](key-layout.md) — the committed keys (14) and the key count, including the push-to-talk key.
+- [`key-layout.md`](key-layout.md) — the committed keys (17) and the key count, including the push-to-talk key.
 - [`ideated-shortcuts.md`](ideated-shortcuts.md) — candidate key assignments.
 - [`prior-art.md`](prior-art.md) — existing agent macropads (Codex Micro, Stream Deck plugins).
 - [`specs/`](specs/) — ESP32 / RP2040 build specs, ideas log, [keycap printing](specs/keycap-printing.md), and the [BOM](specs/bom.md).

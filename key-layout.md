@@ -20,7 +20,7 @@ Exceptions are called out per key (the mic key sends a key, not text; the
 "Approved" / "Stop!" replies are still an open question, see
 `ideated-shortcuts.md`).
 
-## Current count: 14 committed keys
+## Current count: 17 committed keys
 
 | # | Key | Legend / icon | Sends | Submit? | Source |
 |---|-----|---------------|-------|---------|--------|
@@ -38,18 +38,41 @@ Exceptions are called out per key (the mic key sends a key, not text; the
 | 12 | Commit and push | ⬆ | `/commit-and-push` + Return | yes | core #8 |
 | 13 | Spawn Konsole here | `>_` | new Konsole at cwd | — | core #9 |
 | 14 | Open a repo in Claude | 🔍 | fuzzy repo picker → Konsole + `claude` | — | core #10 |
+| 15 | **Model** | `/model` | `/model` + Return | yes | Daniel, 2026-10-24 |
+| 16 | **Rewind** | ↶ | `Esc` `Esc` (undo the last turn) | n/a | Daniel, 2026-10-24 |
+| 17 | **Go to repos** | 🗂 `~/repos` | `cd <repos_dir>` + Return; path from config (below) | yes | Daniel, 2026-10-24 |
 
 Keys 1 and 5 are deliberately different: key 1 types `claude` into the terminal
 you are already in; key 5 opens a new window at `~`.
 
-### What 14 means for hardware
+### The "Go to repos" key (key 17)
+
+The target directory is user-configurable rather than hard-coded:
+
+```yaml
+# ~/.config/claude-macropad/config.yaml
+repos_dir: ~/repos        # key 17 types: cd ~/repos ⏎
+```
+
+The path has to live on the host, not in the pad: QMK/VIA string macros are
+baked into firmware and cannot read a host file. So the pad key sends an unused
+keycode (e.g. `F14`), a host-side shortcut catches it, and the helper reads
+`repos_dir` and injects `cd <repos_dir>` + Return. The Virtual Macropad already
+works this way (`type` action in `~/.config/virtual-macropad/config.yaml`). The
+config file name and the `F14` routing are proposals, not built yet.
+
+### What 17 means for hardware
 
 - The specs (`specs/esp32-standard.md`, `specs/bom.md`) assumed **10–12 keys**
-  (3×3 / 3×4). 14 no longer fits a 3×4.
-- **Recommendation: move to a 4×4 (16 keys).** That fits the 14 plus the two
-  strongest candidates below (`Esc` and `Shift+Tab`). Adafruit MacroPad RP2040
-  (3×4 + encoder) would need a layer; a 4×4 QMK pad or the Tier 3 custom PCB
-  would not.
+  (3×3 / 3×4). 17 is one more than a 4×4.
+- With the two strongest candidates below (`Esc`, `Shift+Tab`) the wish list is
+  **19**. Options:
+  - **4×5 (20 keys)**: everything fits, one spare. Recommended for the custom
+    PCB (Tier 3).
+  - **4×4 + rotary encoder push**: put Rewind on the encoder button and drop
+    one candidate.
+  - **4×4 + layer**: keep the 16 most-used on layer 1.
+- Adafruit MacroPad RP2040 (3×4 + encoder) would need two layers.
 - For comparison, OpenAI's Codex Micro (see [`prior-art.md`](prior-art.md)) is
   13 keys plus an encoder.
 
@@ -82,7 +105,7 @@ mode. (Whether `F13`–`F24` reach Claude Code through Konsole is not yet tested
 
 ## Candidate keys (not yet committed)
 
-Ranked. The first two are what a 4×4 would add.
+Ranked. Model and Rewind were promoted to keys 15–16 on 2026-10-24.
 
 | Rank | Key | Sends | Why |
 |------|-----|-------|-----|
@@ -90,9 +113,7 @@ Ranked. The first two are what a 4×4 would add.
 | 2 | Mode cycle | `Shift+Tab` | Plan / auto-accept / normal. Awkward on a laptop. |
 | 3 | Clear | `/clear` + Return | Fresh context without restarting. |
 | 4 | Resume | `/resume` + Return | Session picker. |
-| 5 | Rewind | `Esc` `Esc` | Rewinds the last turn (double-Esc). |
 | 6 | Context | `/context` + Return | See how full the window is before deciding to `/compact`. |
-| 7 | Model | `/model` + Return | Switch model. |
 | 8 | Usage | `/usage` + Return | Plan limits. |
 | 9 | Voice toggle | `/voice` + Return | Pairs with key 2; turns dictation on or off. |
 | 10 | Accept / deny prompt | `1` / `Esc` (or `Enter`) | Permission dialogs. Overlaps with "Approved". |
