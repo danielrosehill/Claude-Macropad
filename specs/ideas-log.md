@@ -23,6 +23,8 @@ Complete catalogue of brainstormed features with authorship. Not all are in a sp
 | `/model` + Return | Daniel |
 | Rewind (`Esc` `Esc`) | Daniel |
 | `/usage` + Return | Daniel |
+| `/clear` + Return (also covers `/new`, an alias) | Daniel |
+| New session in a new window (future) | Daniel |
 | `cd ~/repos` + Return, path set in a config file | Daniel |
 
 ## Additional shortcuts (Claude-suggested)

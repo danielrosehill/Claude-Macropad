@@ -16,9 +16,11 @@ the Return keystroke as one macro. On Linux the host-side equivalent is
 `ydotool type '<text>'` then `ydotool key 28:1 28:0` (Enter), or `wtype '<text>' -k Return`
 where the compositor supports it. Keys that send a keystroke instead are marked n/a.
 
-## Current draft: 10 keys
+## Current draft: 11 keys
 
-Daniel's keys (2026-10-24) plus the two Claude suggested to fill the grid.
+Daniel's keys (2026-10-24) plus the two Claude suggested (9, 10).
+
+Key 11 covers both "clear" and "new": per the [commands reference](https://code.claude.com/docs/en/commands), `/new` and `/reset` are aliases of `/clear`, so one key does both.
 
 | # | Key | Legend / icon | Sends | Submit? | Source |
 |---|-----|---------------|-------|---------|--------|
@@ -32,6 +34,7 @@ Daniel's keys (2026-10-24) plus the two Claude suggested to fill the grid.
 | 8 | **Go to repos** | 🗂 `~/repos` | `cd <repos_dir>` + Return; path from config (below) | yes | Daniel |
 | 9 | Esc / interrupt | `Esc` | `Esc` (stops Claude mid-turn, cancels a dictation) | n/a | Claude |
 | 10 | Mode cycle | `⇧Tab` | `Shift+Tab` (plan / auto-accept / normal) | n/a | Claude |
+| 11 | **Clear / New** | `/clear` | `/clear` + Return: new conversation, same session and terminal | yes | Daniel |
 
 The original ten shortcuts in [`ideated-shortcuts.md`](ideated-shortcuts.md)
 (launch at home, Dolphin integration, Approved, Stop!, split, commit and push,
@@ -53,12 +56,12 @@ keycode (e.g. `F14`), a host-side shortcut catches it, and the helper reads
 works this way (`type` action in `~/.config/virtual-macropad/config.yaml`). The
 config file name and the `F14` routing are proposals, not built yet.
 
-### What 10 means for hardware
+### What 11 means for hardware
 
-- Fits a **3×4 (12 keys)** with 2 spare, which matches the original specs
+- Fits a **3×4 (12 keys)** with 1 spare, which matches the original specs
   (`specs/esp32-standard.md`, `specs/bom.md`: 10–12 keys).
 - Adafruit MacroPad RP2040 (3×4 + encoder) fits with no layers; the encoder push
-  could take Rewind and free a third slot.
+  could take Rewind and free a second slot.
 - For comparison, OpenAI's Codex Micro (see [`prior-art.md`](prior-art.md)) is
   13 keys plus an encoder.
 
@@ -89,15 +92,21 @@ the first press with no warmup and work outside the prompt (transcript viewer,
 vim normal mode), where `Space` does not. Bare letters are a bad idea in hold
 mode. (Whether `F13`–`F24` reach Claude Code through Konsole is not yet tested.)
 
-## Candidates for the 2 spare slots
+## Candidates for the spare slot
 
 Ranked.
 
 | Rank | Key | Sends | Why |
 |------|-----|-------|-----|
-| 1 | Clear | `/clear` + Return | Fresh context without restarting. |
-| 2 | Resume | `/resume` + Return | Session picker. |
-| 3 | Context | `/context` + Return | See how full the window is before deciding to `/compact`. |
-| 4 | Paste image | `Ctrl+V` | Screenshot from the clipboard into the prompt. |
-| 5 | Voice toggle | `/voice` + Return | Pairs with key 2; turns dictation on or off. |
-| 6 | Accept / deny prompt | `1` / `Esc` (or `Enter`) | Permission dialogs. |
+| 1 | Resume | `/resume` + Return | Session picker. |
+| 2 | Context | `/context` + Return | See how full the window is before deciding to `/compact`. |
+| 3 | Paste image | `Ctrl+V` | Screenshot from the clipboard into the prompt. |
+| 4 | Voice toggle | `/voice` + Return | Pairs with key 2; turns dictation on or off. |
+| 5 | Accept / deny prompt | `1` / `Esc` (or `Enter`) | Permission dialogs. |
+
+## Future shortcut ideas
+
+- **New session in a new window** (Daniel, 2026-10-24): open a new Konsole
+  window at the current working directory and start `claude` there, leaving the
+  current session running. Related to "New Claude instance here" and "Copy
+  Claude (split)" in `ideated-shortcuts.md`. Not for this draft.
