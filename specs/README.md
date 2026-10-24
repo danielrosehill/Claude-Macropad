@@ -1,6 +1,6 @@
 # Build Specs
 
-Ideation specs for the Claude Macropad. Each doc is a candidate build, not a committed plan.
+Ideation specs for the Claude-Pad. Each doc is a candidate build, not a committed plan.
 
 | Spec | Target | Vibe |
 |------|--------|------|

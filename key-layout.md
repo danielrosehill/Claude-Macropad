@@ -8,6 +8,10 @@ brainstorm; this file is the shortlist. Last updated 2026-10-24.
 
 *Concept render (Gemini / Nano Banana 2, 2026-10-24) of the 11-key draft on a 3×4 pad (one blank spare). Key positions in the image are approximate; the table below is authoritative.*
 
+Legend icons for all 12 positions (the 11 below plus `/resume` in the spare
+slot, provisional) are in [`keycaps/`](keycaps/), with a fal render at
+[`assets/prototypes/keycaps-render.png`](assets/prototypes/keycaps-render.png).
+
 ## Submit-style injectors
 
 Most Claude Code keys are **text injection followed by Return**. Typing `/compact`
@@ -45,7 +49,7 @@ repo picker, etc.) are **not** in this draft; they stay in the brainstorm.
 The target directory is user-configurable rather than hard-coded:
 
 ```yaml
-# ~/.config/claude-macropad/config.yaml
+# ~/.config/claude-pad/config.yaml
 repos_dir: ~/repos        # key 8 types: cd ~/repos ⏎
 ```
 

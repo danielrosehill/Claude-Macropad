@@ -1,6 +1,6 @@
 # Hardware Directions
 
-Two broad paths for the Claude Macropad. Not mutually exclusive — Direction A is the fastest route to value; Direction B is the more interesting build.
+Two broad paths for the Claude-Pad. Not mutually exclusive — Direction A is the fastest route to value; Direction B is the more interesting build.
 
 ---
 

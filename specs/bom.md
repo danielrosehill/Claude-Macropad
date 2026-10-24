@@ -1,4 +1,4 @@
-# Bill of Materials — DIY Claude Macropad
+# Bill of Materials — DIY Claude-Pad
 
 Three tiers. Pick one based on how much you want to build vs. buy.
 
